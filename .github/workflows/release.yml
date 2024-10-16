@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3  # S'assure que la version est bien v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # S'assure que la version est bien v3
+        uses: actions/setup-node@v4  # S'assure que la version est bien v3
         with:
           node-version: '20'  # Utilisation de Node.js 20 explicitement
 
