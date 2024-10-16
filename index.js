@@ -12,6 +12,12 @@ app.get('/soustraction', (req, res) => {
   const sum = parseInt(a) - parseInt(b);
   res.send({ result: sum });
 });
+//ajout de la multiplication
+app.get('/multiplication', (req, res) => {
+  const { a, b } = req.query;
+  const sum = parseInt(a) * parseInt(b);
+  res.send({ result: sum });
+});
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
