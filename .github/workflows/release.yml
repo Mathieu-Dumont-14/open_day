@@ -10,17 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # S'assure que la version est bien v3
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # S'assure que la version est bien v3
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Utilisation de Node.js 20 explicitement
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
+
+      - name: Fix permissions for semantic-release
+        run: chmod +x ./node_modules/.bin/semantic-release
 
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn semantic-release  # Exécution de semantic-release
+        run: yarn semantic-release
