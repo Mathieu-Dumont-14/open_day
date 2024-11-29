@@ -3,7 +3,7 @@ name: Renovate
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *' # Toutes les 5 minutes
+    - cron: '0 * * * *' # Toutes les heures (par exemple)
 
 jobs:
   renovate:
@@ -12,8 +12,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Renovate
-        run: npx renovate
+      - name: Install and run Renovate
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_RENOVATE }}
           LOG_LEVEL: debug
+        run: npx renovate@37.0.0
+
+      - name: Verify Renovate run
+        if: failure() # Exécute cette étape si Renovate échoue
+        run: echo "Renovate encountered an issue. Check logs for details."
+
+      - name: Save Renovate logs
+        if: always() # Sauvegarde les logs, même en cas d'échec
+        run: |
+          mkdir -p logs
+          echo "Saving logs..."
+          npx renovate --log-level=debug > logs/renovate.log
+        continue-on-error: true # Ne bloque pas le workflow
