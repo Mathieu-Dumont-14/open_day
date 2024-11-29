@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Renovate
-        run: npx renovate
+      - name: Run Renovate
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Injecte le secret ici
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx renovate
