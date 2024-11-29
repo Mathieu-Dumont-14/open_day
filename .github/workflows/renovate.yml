@@ -20,6 +20,6 @@ jobs:
 
       # Exécuter Renovate avec spécification du dépôt
       - name: Run Renovate --autodiscover
-        uses: renovatebot/github-action@v41.0.3
+        uses: renovatebot/github-action@v41.0.4
         with:
           token: ${{ secrets.GH_TOKEN }}
