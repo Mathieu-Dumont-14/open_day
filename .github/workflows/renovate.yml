@@ -15,5 +15,5 @@ jobs:
       - name: Install Renovate
         run: npx renovate
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_RENOVATE }}
           LOG_LEVEL: debug
