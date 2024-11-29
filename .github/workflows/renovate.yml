@@ -18,8 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Exécuter Renovate en mode autodiscover
+      # Exécuter Renovate avec autodiscover
       - name: Run Renovate with autodiscover
-        run: npx renovate --autodiscover
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Assurez-vous que ce token ait les bonnes permissions
+        uses: renovatebot/github-action@v41.0.3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          autodiscover: true  # Activer le mode autodiscover
