@@ -16,6 +16,7 @@ app.get('/soustraction', (req, res) => {
 app.get('/multiplication', (req, res) => {
   const { a, b } = req.query;
   const sum = parseInt(a) * parseInt(b);
+  // si b est égal à 0
   res.send({ result: sum });
 });
 //ajout de la division
