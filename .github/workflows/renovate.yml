@@ -3,7 +3,7 @@ name: Run Renovate
 on:
   schedule:
     # Lancer tous les jours à 00:00 UTC
-    - cron: '0 0 * * *'
+    - cron: '*/5 * * * *' # Exécution toutes les 2 minutes
   workflow_dispatch: # Permet de lancer manuellement
   push:
     paths:
