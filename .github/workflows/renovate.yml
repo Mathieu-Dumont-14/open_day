@@ -1,27 +1,26 @@
 name: Renovate Workflow
 
 on:
-  push: 
+  push:
     branches:
       - main
-  pull_request: 
-  workflow_dispatch: 
+  pull_request:
+  workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/5 * * * *'  # Exécution toutes les 5 minutes
 
 jobs:
   renovate:
     runs-on: ubuntu-latest
 
     steps:
-      # Cloner le dépôt
+      # Checkout du code
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          
-      # Exécuter Renovate
+
+      # Exécuter Renovate avec spécification du dépôt
       - name: Run Renovate
         uses: renovatebot/github-action@v41.0.3
         with:
           token: ${{ secrets.GH_TOKEN }}
+          repository: "Mathieu-Dumont-14/open_day" 
