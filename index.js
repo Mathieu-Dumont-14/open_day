@@ -21,6 +21,7 @@ app.get('/multiplication', (req, res) => {
 //ajout de la division
 app.get('/division', (req, res) => {
   const { a, b } = req.query;
+  // si b est égal à 0
   const sum = parseInt(a) / parseInt(b);
   res.send({ result: sum });
 });
