@@ -1,9 +1,9 @@
 name: Renovate
 
 on:
-  workflow_dispatch: # Permet un déclenchement manuel
+  workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *' # Exécution toutes les 2 minutes
+    - cron: '*/5 * * * *' # Toutes les 5 minutes
 
 jobs:
   renovate:
@@ -12,7 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Renovate
+      - name: Install Renovate
+        run: npx renovate
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx renovate
+          LOG_LEVEL: debug
