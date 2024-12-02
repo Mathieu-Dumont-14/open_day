@@ -6,8 +6,8 @@ on:
       - main
   pull_request:
   workflow_dispatch:
-  #schedule:
-    #- cron: '*/5 * * * *'  # Exécution toutes les 5 minutes
+  # schedule: # Tâche cron désactivée, mais peut être réactivée si nécessaire
+  #   - cron: '0 0 1 * *'  # Exécution le premier jour de chaque mois
 
 jobs:
   renovate:
