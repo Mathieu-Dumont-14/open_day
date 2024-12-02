@@ -6,8 +6,8 @@ on:
       - main
   pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'  # Exécution toutes les 5 minutes
+  #schedule:
+    #- cron: '*/5 * * * *'  # Exécution toutes les 5 minutes
 
 jobs:
   renovate:
