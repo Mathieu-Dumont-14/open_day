@@ -16,7 +16,7 @@ jobs:
     steps:
       # Checkout du code
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Installer et exécuter Renovate avec autodiscover
       - name: Run Renovate with autodiscover
